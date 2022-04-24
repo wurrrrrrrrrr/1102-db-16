@@ -1,6 +1,6 @@
-const db = require('../utils/database3');
+const db = require('../utils/database');
 
-const shop_16 = class shop_16 {
+const Shop_16 = class Shop_16 {
     constructor(id,name,cat_id,price,remote_url,local_url){
         this.id = id;
         this.name = name;
@@ -12,7 +12,7 @@ const shop_16 = class shop_16 {
     }
     static async fetchAll(){
         try{
-            let results = await db.query('SELECT * from shop_16');
+            let results = await db.query('SELECT * from Shop_16');
             //console.log('results',results.rows);
             return results.rows;
         }catch(err){
@@ -22,7 +22,7 @@ const shop_16 = class shop_16 {
 
     static async fetchProductByCategory(id){
         const query = { 
-            text: `SELECT * from shop_16 where cat_id =$1`,
+            text: `SELECT * from Shop_16 where cat_id = $1`,
             values:[id]
         }
     try{
@@ -36,10 +36,10 @@ const shop_16 = class shop_16 {
 }
 
 const test = async () => {
-let results = await shop_16.fetchProductByCategory(1);
+let results = await Shop_16.fetchProductByCategory(1);
  console.log('test results',  JSON.stringify(results));
 }
 
 test();
 
-module.exports = shop_16;
+module.exports = Shop_16;

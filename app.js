@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 
 const crown_16_Router = require('./routes/crown_16');
 const crown2_16_Router = require('./routes/crown2_16');
-const crown3_16_Router = require('./routes/crown3_16');
+
 var app = express();
 
 // view engine setup
@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/crown_16', crown_16_Router);
 app.use('/crown2_16', crown2_16_Router);
-app.use('/crown_16/shop_16/hats', crown3_16_Router);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
